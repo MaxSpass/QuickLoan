@@ -1,1 +1,115 @@
-@import 'mixin/mixins', 'mixin/normalize';
+@import 'mixin/mixins', 'mixin/normalize', 'mixin/variables';
+@import '../css/bootstrap-grid.min', '../css/fontello';
+
+@mixin no-text-decor
+	text-decoration: none
+	&:hover
+		text-decoration: none
+
+.transition
+	transition: all .25s ease
+
+
+
+a
+	outline: none !important
+
+.navigation-box
+	display: flex
+	flex-flow: row wrap
+	justify-content: flex-end
+	align-items: center
+	margin: 40px auto
+	ul.menu
+		margin-right: 40px
+		li
+			display: inline-block
+			a
+				color: $grey
+				padding: 0 25px
+				@include no-text-decor
+	.init-area
+		a:first-child
+			margin-right: 5px
+		.btn-reg, .btn-login
+			border: 2px solid
+			border-radius: 6px
+			display: inline-block
+			padding: 10px 25px
+			@extend .transition
+			@include no-text-decor
+		.btn-reg
+			background: #fff
+			border-color: $blue
+			color: $blue
+			&:hover
+				background: $blue
+				border-color: transparent
+				color: #fff
+		.btn-login
+			background: $blue
+			border-color: transparent
+			color: #fff
+			&:hover
+				background: #fff
+				border-color: $blue
+				color: $blue
+
+.content
+	background-image: url("../img/bg-top.png")
+	background-repeat: no-repeat
+	background-size: contain
+	background-position: center top
+	padding: 30px 15px
+	height: 1000px
+
+.step-view
+	background: #fff
+	border-radius: 5px
+	// box-sizing: border-box
+	// padding: 0 10vw
+	.step-inner
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-around
+		align-items: center
+		height: 105px
+		position: relative
+		&:after
+			position: absolute
+			top: 50%
+			margin-top: -1px
+			content: ''
+			width: calc(100% - 20vw)
+			height: 1px
+			border-top: 3px dotted #dedede
+			// box-sizing: border-box
+			// padding: 0 10vw
+		.step-dot
+			height: 15px
+			width: 15px
+			background: $blue
+			border-radius: 50%
+			border: 10px solid #fff
+			z-index: 1
+			position: relative				
+			&.active
+				width: 30px
+				height: 30px
+				background: $green
+			p
+				// position: absolute
+				// width: 300px
+				// bottom: -20px
+				// left: auto
+				// right: auto
+				// margin: 0 auto
+				// word-break: break-word
+
+.step-text
+	display: flex
+	flex-flow: row wrap
+	justify-content: space-around
+	align-items: center
+	p
+		text-align: center
