@@ -4,7 +4,6 @@
 @import '../css/font'
 @import '../css/icons'
 
-
 @mixin no-text-decor
 	text-decoration: none
 	&:hover
@@ -77,7 +76,7 @@ body
 	// background-size: contain
 	background-position: center top
 	padding: 1.5vw 0
-	background-color: brown
+	background-color: #fff
 
 .step-inner
 	&.active-step-1	.step-item:first-child,
@@ -103,15 +102,13 @@ body
 	border-radius: 5px
 	box-sizing: border-box
 	padding: 35px 0
-	@media screen and (max-width: 767px)
-		display: none
 	.step-inner
 		display: flex
 		flex-flow: row wrap
 		justify-content: space-around
 		align-items: baseline
 		position: relative
-		&:before,&::before
+		&:before
 			position: absolute
 			content: ''
 			// top: 24%
@@ -206,6 +203,8 @@ body
 		position: absolute
 		z-index: 2
 		display: block
+		&:hover
+			box-shadow: 3px 3px 10px rgba(0,0,0,.1)
 		&:before
 			content: ''
 			position: absolute
@@ -298,9 +297,46 @@ body
 			height: 50px
 			border-radius: 4px
 			border: 1px solid #e6e6e6
-			box-shadow: inset 2px 2px 5px rgba(0,0,0,.1)
+			box-shadow: inset 1px 2px 8px rgba(0,0,0,.1)
 			line-height: 50px
 			padding-left: 15px
-			&:focus
-				box-shadow: inset 2px 2px 5px rgba($blue,.15)
-				border-color: rgba($blue,.15)
+			padding-right: 40px
+			// &:focus
+			// 	box-shadow: inset 2px 2px 5px rgba($green,.15)
+			// 	border-color: rgba($blue,.15)
+			&+.validation
+				position: absolute
+				display: block
+				top: 50%
+				right: 15px
+				margin-top: -10px
+				width: 20px
+				height: 20px
+				&:before
+					position: absolute
+					top: 0
+					line-height: 20px
+					width: 20px
+					text-align: center
+					height: 100%
+					font-family: 'fontello'
+					font-size: 18px
+				&.valid
+					&+input
+						box-shadow: inset 1px 2px 8px rgba($orange,.15)
+						border-color: rgba($orange,.2)
+					&:before
+						content: '\e800'
+						color: $orange
+				&.error
+					&+input
+						box-shadow: inset 1px 2px 8px rgba($red,.15)
+						border-color: rgba($red,.2)
+					&:before
+						content: '\e803'
+						color: $red
+
+label.error
+    position: absolute
+    width: 100%
+    right: -102%

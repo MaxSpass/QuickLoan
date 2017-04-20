@@ -111,7 +111,8 @@
                            <p class="required">Фамилия:</p>
                         </div>
                         <div class="field-value">
-                           <input name="lname" type="text" pattern="^[А-Яа-яЁё\s]+$">
+                           <input name="lname" type="text" pattern="[A-Za-zА-Яа-яЁё]" required>
+                           <!-- pattern="^[А-Яа-яЁё\s]+$" -->
                         </div>
                      </div>
                      <div class="form-field">
@@ -119,7 +120,8 @@
                            <p class="required">Имя:</p>
                         </div>
                         <div class="field-value">
-                           <input name="fname" type="text" pattern="^[А-Яа-яЁё\s]+$">
+                           <input name="fname" type="text" pattern="[A-Za-zА-Яа-яЁё]" required>
+                           <!-- pattern="^[А-Яа-яЁё\s]+$" -->
                         </div>
                      </div>
                      <div class="form-field">
@@ -127,27 +129,37 @@
                            <p class="required">Отчество:</p>
                         </div>
                         <div class="field-value">
-                           <input name="pname" type="text" pattern="^[А-Яа-яЁё\s]+$">
+                           <input name="pname" type="text" pattern="[A-Za-zА-Яа-яЁё]" required>
+                           <!-- pattern="^[А-Яа-яЁё\s]+$" -->
                         </div>
                      </div>
                      <div class="form-field">
                         <div class="field-desc">
                            <p class="required">Дата рождения:</p>
                         </div>
-                        <div class="field-value"><input type="text"></div>
+                        <div class="field-value">
+                           <input name="datebirth" class="datepicker" type="text">
+                           <!-- data-date-format="mm.dd.yyyy" -->
+                        </div>
                      </div>
                      <div class="form-field">
                         <div class="field-desc">
                            <p class="required">Номер телефона:</p>
                         </div>
-                        <div class="field-value"><input type="text"></div>
+                        <div class="field-value">
+                           <input name="telnum" type="tel">
+                        </div>
                      </div>
                      <div class="form-field">
                         <div class="field-desc">
                            <p class="required">Электронная почта:</p>
                         </div>
-                        <div class="field-value"><input type="text"></div>
+                        <div class="field-value">
+                           <input name="email" type="email">
+                            <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" -->
+                        </div>
                      </div>
+                     <button type="submit">ТЕСТИРОВАТЬ ФОРМОЧКУ</button>
                   </div>
                </div>
             </div>
@@ -160,6 +172,8 @@
 </main>
 
    <script src="js/jquery-3.1.1.min.js"></script>
+   <script src="libs/jquery-validation/dist/jquery.validate.min.js"></script>
+<!--    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.11.1/validate.min.js"></script> -->
    <script src="js/common.js"></script>
 </body>
 </html>
