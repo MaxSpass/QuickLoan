@@ -4,61 +4,162 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="css/media.css">
 <!--       <link rel="stylesheet" href="css/main.min.css"> -->
       <title>TEST</title>
       <!--[if IE]>-->
       <!--<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> -->
       <!--<![endif]-->
    </head>
-   <body>
-      <div class="container">
-         <div class="navigation-box">
-            <nav>
-               <ul class="menu">
-                  <li><a href="">О нас</a></li>
-                  <li><a href="">Как получить займ</a></li>
-                  <li><a href="">Вопросы-ответы</a></li>
-                  <li><a href="">Обратная связь</a></li>
-               </ul>
-            </nav>
-            <div class="init-area">
-               <a class="btn-reg" href="">Регистрация</a>
-               <a class="btn-login" href="">Войти</a>
+
+<body>
+
+   <div class="container">
+      <div class="navigation-box">
+         <nav>
+            <ul class="menu">
+               <li><a href="">О нас</a></li>
+               <li><a href="">Как получить займ</a></li>
+               <li><a href="">Вопросы-ответы</a></li>
+               <li><a href="">Обратная связь</a></li>
+            </ul>
+         </nav>
+         <div class="init-area">
+            <a class="btn-reg" href="">Регистрация</a>
+            <a class="btn-login" href="">Войти</a>
+         </div>
+      </div>
+   </div>
+
+<main class="wrapper">
+   <div class="container">
+      <div class="step-view">
+         <div class="step-inner active-step-1">
+            <div class="step-item">
+               <span class="step-dot"></span>
+               <p class="step-desc">Личные данные</p>
+            </div>
+            <div class="step-item">
+               <span class="step-dot"></span>
+               <p class="step-desc">Адрес регистрации</p>
+            </div>
+            <div class="step-item">
+               <span class="step-dot"></span>
+               <p class="step-desc">Паспортные данные</p>
+            </div>
+            <div class="step-item">
+               <span class="step-dot"></span>
+               <p class="step-desc">Скидка</p>
+            </div>
+            <div class="step-item">
+               <span class="step-dot"></span>
+               <p class="step-desc">Подтверждение</p>
             </div>
          </div>
       </div>
 
-      <main class="content">
-         <div class="container step-view">
-            <div class="step-inner">
-               <div class="step-dot active">
-               </div>
-               <div class="step-dot"></div>
-               <div class="step-dot"></div>
-               <div class="step-dot"></div>
-               <div class="step-dot"></div>
+      <div class="content">
+         <form id="personal_info">
+            <div class="request">
+               <p>Заявка на микрозайм – шаг <span class="step-count">1</span>: Личные данные</p>
             </div>
-            <div class="step-text">
-               <div class="">
-                  <p>Личные данные</p>
-               </div>  
-               <div class="">
-                  <p>Адрес регистрации</p>
+            <div class="brief-content">
+               <div class="select-amount">
+                  <p class="choise-text">Выберите сумму займа:</p>
                </div>
-               <div class="">
-                  <p>Паспортные данные</p>
+               <div class="select-view"></div>
+               <div class="select-amount">
+                  <p class="choise-text">Как вам удобнее получить деньги?</p>
+                  <div class="hot-to-get">
+                     <div class="get-item">
+                        <input id="choise_cart" class="input-cart" type="checkbox">
+                        <label for="choise_cart" class="choise-cart">
+                           <span class="choise-value">На карту</span>
+                        </label>  
+                     </div>
+                     <div class="get-item">
+                        <input id="choise_cash" class="input-cash" type="checkbox">
+                        <label for="choise_cash" class="choise-cash">
+                           <span class="choise-value">Наличными</span>
+                        </label>
+                     </div>
+                     <div class="get-item">
+                        <input id="choise_bank" class="input-bank" type="checkbox">
+                        <label for="choise_bank" class="choise-bank">
+                           <span class="choise-value">На счет</span>
+                        </label>
+                     </div>
+                     <div class="get-item">
+                        <input id="choise_web_wallet" class="input-web-wallet" type="checkbox">
+                        <label for="choise_web_wallet" class="choise-web-wallet">
+                           <span class="choise-value">На кошелек</span>
+                        </label>        
+                     </div>
+                     <div class="get-item">
+                        <input id="choise_contact" class="input-contact" type="checkbox">
+                        <label for="choise_contact" class="choise-contact">
+                           <span class="choise-value">Через Contact</span>
+                        </label>
+                     </div>
+                  </div>
                </div>
-               <div class="">
-                  <p>Скидка</p>
-               </div>
-               <div class="">
-                  <p>Подтверждение</p>
+               <div class="select-amount">
+                  <p class="choise-text">Заполниет свои личные данные</p>
+                  <div class="form-content">
+                     <div class="form-field">
+                        <div class="field-desc">
+                           <p class="required">Фамилия:</p>
+                        </div>
+                        <div class="field-value">
+                           <input name="lname" type="text" pattern="^[А-Яа-яЁё\s]+$">
+                        </div>
+                     </div>
+                     <div class="form-field">
+                        <div class="field-desc">
+                           <p class="required">Имя:</p>
+                        </div>
+                        <div class="field-value">
+                           <input name="fname" type="text" pattern="^[А-Яа-яЁё\s]+$">
+                        </div>
+                     </div>
+                     <div class="form-field">
+                        <div class="field-desc">
+                           <p class="required">Отчество:</p>
+                        </div>
+                        <div class="field-value">
+                           <input name="pname" type="text" pattern="^[А-Яа-яЁё\s]+$">
+                        </div>
+                     </div>
+                     <div class="form-field">
+                        <div class="field-desc">
+                           <p class="required">Дата рождения:</p>
+                        </div>
+                        <div class="field-value"><input type="text"></div>
+                     </div>
+                     <div class="form-field">
+                        <div class="field-desc">
+                           <p class="required">Номер телефона:</p>
+                        </div>
+                        <div class="field-value"><input type="text"></div>
+                     </div>
+                     <div class="form-field">
+                        <div class="field-desc">
+                           <p class="required">Электронная почта:</p>
+                        </div>
+                        <div class="field-value"><input type="text"></div>
+                     </div>
+                  </div>
                </div>
             </div>
-         </div>
-      </main>
+         </form>
 
-      <script src="js/jquery-3.1.1.min.js"></script>
-      <script src="js/common.js"></script>
-   </body>
+      </div>
+   
+
+   </div>
+</main>
+
+   <script src="js/jquery-3.1.1.min.js"></script>
+   <script src="js/common.js"></script>
+</body>
 </html>

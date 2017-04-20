@@ -1,18 +1,31 @@
-@import 'mixin/mixins', 'mixin/normalize', 'mixin/variables';
-@import '../css/bootstrap-grid.min', '../css/fontello';
+@import 'mixin/mixins', 'mixin/normalize', 'mixin/variables', 'mixin/sprite';
+
+@import '../css/bootstrap-grid.min'
+@import '../css/font'
+@import '../css/icons'
+
 
 @mixin no-text-decor
 	text-decoration: none
 	&:hover
 		text-decoration: none
+@mixin transition
+	transition: all .3s ease
 
-.transition
-	transition: all .25s ease
-
-
+@mixin clearfix
+	clear: both
+	&:after
+		content: ''
+		display: table
+		width: 100%
 
 a
 	outline: none !important
+
+body
+	font-size: 100%
+	font-family: $ff-os-regular
+	box-sizing: border-box
 
 .navigation-box
 	display: flex
@@ -27,7 +40,10 @@ a
 			a
 				color: $grey
 				padding: 0 25px
+				@include transition
 				@include no-text-decor
+				&:hover
+					color: $blue
 	.init-area
 		a:first-child
 			margin-right: 5px
@@ -36,7 +52,7 @@ a
 			border-radius: 6px
 			display: inline-block
 			padding: 10px 25px
-			@extend .transition
+			@include transition
 			@include no-text-decor
 		.btn-reg
 			background: #fff
@@ -55,61 +71,236 @@ a
 				border-color: $blue
 				color: $blue
 
-.content
+.wrapper
 	background-image: url("../img/bg-top.png")
 	background-repeat: no-repeat
-	background-size: contain
+	// background-size: contain
 	background-position: center top
-	padding: 30px 15px
-	height: 1000px
+	padding: 1.5vw 0
+	background-color: brown
+
+.step-inner
+	&.active-step-1	.step-item:first-child,
+	&.active-step-2	.step-item:nth-child(2),
+	&.active-step-3	.step-item:nth-child(3),
+	&.active-step-4	.step-item:nth-child(4),
+	&.active-step-5	.step-item:nth-child(5)
+		.step-dot
+			@include sprite-dot-big
+			// background-image: url("../img/dot-big.png")
+
+			// &:before
+			// 	padding: 10px
+			// 	margin: -10px auto
+			// 	background: $green
+		.step-desc
+			font-family: $ff-os-bold
+			opacity: 1
 
 .step-view
+	margin-top: 15px
 	background: #fff
 	border-radius: 5px
-	// box-sizing: border-box
-	// padding: 0 10vw
+	box-sizing: border-box
+	padding: 35px 0
+	@media screen and (max-width: 767px)
+		display: none
 	.step-inner
 		display: flex
 		flex-flow: row wrap
 		justify-content: space-around
-		align-items: center
-		height: 105px
+		align-items: baseline
 		position: relative
-		&:after
+		&:before,&::before
 			position: absolute
-			top: 50%
-			margin-top: -1px
 			content: ''
+			// top: 24%
+			top: 30%
+			left: 0
+			right: 0
 			width: calc(100% - 20vw)
+			width: -moz-calc(100% - 20vw)
 			height: 1px
 			border-top: 3px dotted #dedede
-			// box-sizing: border-box
-			// padding: 0 10vw
+			margin: 0 auto
+		.step-item
+			position: relative
 		.step-dot
-			height: 15px
-			width: 15px
-			background: $blue
-			border-radius: 50%
-			border: 10px solid #fff
-			z-index: 1
-			position: relative				
-			&.active
-				width: 30px
-				height: 30px
-				background: $green
-			p
-				// position: absolute
-				// width: 300px
-				// bottom: -20px
-				// left: auto
-				// right: auto
-				// margin: 0 auto
-				// word-break: break-word
+			@include sprite-dot-small
+			margin: 0 auto
+			// display: block
+			// width: 50px
+			// height: 50px
+			// background-image: url("../img/dot-small.png")
+			// background-repeat: no-repeat
+			// background-position: center
+			// background-size: contain
 
-.step-text
+			// &:before
+			// 	content: '' 
+			// 	display: block
+			// 	height: 15px
+			// 	width: 15px
+			// 	background: $blue
+			// 	border-radius: 50%
+			// 	border: 10px solid #fff
+			// 	margin: 0 auto
+		.step-desc
+			color: $blue
+			// margin-top: 10px
+			margin-top: 5px
+			text-align: center
+			opacity: .6
+			user-select: none
+			font-family: $ff-os-light
+			max-width: 200px
+
+
+.content
+	margin: 0 auto
+	max-width: 1030px
+	.request
+		display: flex
+		align-items: center
+		color: #fff
+		padding: 2vw 25px
+		box-sizing: border-box
+		// height: 100px
+		@include fontsize(30)
+
+.brief-content
+	background: #f1f1f1
+	border-radius: 15px
+	padding: 40px 0
+	.select-amount
+		padding: 0 30px
+		.choise-text
+			color: $blue
+			@include fontsize(25)
+			font-family: $ff-os-sbold
+	.select-view
+		background: $green
+		border-radius: 7px
+		height: 100px
+		margin: 35px auto
+
+.hot-to-get
 	display: flex
 	flex-flow: row wrap
-	justify-content: space-around
+	justify-content: space-between
 	align-items: center
-	p
+	margin: 45px auto
+.get-item
+	position: relative
+	width: 175px
+	height: 90px
+	background: #fff
+	border-radius: 15px
+	box-sizing: border-box
+	label, input
+		cursor: pointer
+		width: 100%
+		height: 100%
+		border-radius: 15px
+	label
+		position: absolute
+		z-index: 2
+		display: block
+		&:before
+			content: ''
+			position: absolute
+			bottom: 48px
+			left: 0
+			right: 0
+			margin: 0 auto
+		&:after
+			color: #fff
+			content: '\f128'
+			position: absolute
+			top: -8px
+			right: -6px
+			background: $orange
+			border-radius: 50%
+			width: 20px
+			line-height: 20px
+			text-align: center
+			font-family: 'fontello'
+			font-size: 14px
+		&.choise-cart:before
+			@include sprite-get-money-ico1
+		&.choise-cash:before
+			@include sprite-get-money-ico2
+		&.choise-bank:before
+			@include sprite-get-money_ico5
+		&.choise-web-wallet:before
+			@include sprite-get-money-ico3
+		&.choise-contact:before
+			@include sprite-get-money-ico4
+	input
+		display: none
+		&:checked
+			&+label
+				background: $blue
+				.choise-value
+					color: #fff
+				&:after
+					display: none
+		&.input-cart:checked+label:before
+			@include sprite-get-money-ico1_hover
+		&.input-cash:checked+label:before
+			@include sprite-get-money-ico2_hover
+		&.input-bank:checked+label:before
+			@include sprite-get-money-ico5_hover
+		&.input-web-wallet:checked+label:before
+			@include sprite-get-money-ico3_hover
+		&.input-contact:checked+label:before
+			@include sprite-get-money-ico4_hover
+	.choise-value
+		position: absolute
+		bottom: 15px
+		left: 0
+		right: 0
+		color: $blue
+		padding-top: 33px
 		text-align: center
+		font-size: 16px
+		font-family: $ff-os-sbold
+		z-index: 2
+
+.form-content
+	max-width: 650px
+	margin-top: 35px
+	.form-field
+		position: relative
+		margin: 20px auto
+		@include clearfix
+	.field-desc, .field-value
+		float: left
+		display: inline-block
+		box-sizing: border-box
+		height: 50px
+		line-height: 50px
+	.field-desc
+		width: 31%
+		p
+			position: relative
+			color: $text-color
+			@include fontsize(16)
+			font-family: $ff-os-sbold
+			&.required			
+				&:after
+					content: '*'
+					color: $orange
+	.field-value
+		width: 69%
+		input
+			width: 100%
+			height: 50px
+			border-radius: 4px
+			border: 1px solid #e6e6e6
+			box-shadow: inset 2px 2px 5px rgba(0,0,0,.1)
+			line-height: 50px
+			padding-left: 15px
+			&:focus
+				box-shadow: inset 2px 2px 5px rgba($blue,.15)
+				border-color: rgba($blue,.15)

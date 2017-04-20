@@ -1,0 +1,96 @@
+@mixin sprite {
+    background-image: url(../img/sprite.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+@mixin sprite-beeline {
+    @include sprite;
+    width: 39px;
+    height: 23px;
+    background-position: -3px -3px;
+}
+
+@mixin sprite-dot-big {
+    @include sprite;
+    width: 50px;
+    height: 50px;
+    background-position: -48px -3px;
+}
+
+@mixin sprite-dot-small {
+    @include sprite;
+    width: 50px;
+    height: 50px;
+    background-position: -3px -59px;
+}
+
+@mixin sprite-get-money-ico1 {
+    @include sprite;
+    width: 32px;
+    height: 22px;
+    background-position: -104px -3px;
+}
+
+@mixin sprite-get-money-ico1_hover {
+    @include sprite;
+    width: 32px;
+    height: 22px;
+    background-position: -104px -31px;
+}
+
+@mixin sprite-get-money-ico2 {
+    @include sprite;
+    width: 44px;
+    height: 24px;
+    background-position: -59px -59px;
+}
+
+@mixin sprite-get-money-ico2_hover {
+    @include sprite;
+    width: 44px;
+    height: 24px;
+    background-position: -59px -89px;
+}
+
+@mixin sprite-get-money-ico3 {
+    @include sprite;
+    width: 28px;
+    height: 28px;
+    background-position: -109px -59px;
+}
+
+@mixin sprite-get-money-ico3_hover {
+    @include sprite;
+    width: 28px;
+    height: 28px;
+    background-position: -109px -93px;
+}
+
+@mixin sprite-get-money-ico4 {
+    @include sprite;
+    width: 24px;
+    height: 28px;
+    background-position: -142px -3px;
+}
+
+@mixin sprite-get-money-ico4_hover {
+    @include sprite;
+    width: 24px;
+    height: 28px;
+    background-position: -143px -37px;
+}
+
+@mixin sprite-get-money-ico5 {
+    @include sprite;
+    width: 29px;
+    height: 29px;
+    background-position: -3px -127px;
+}
+
+@mixin sprite-get-money-ico5_hover {
+    @include sprite;
+    width: 29px;
+    height: 29px;
+    background-position: -38px -127px;
+}
