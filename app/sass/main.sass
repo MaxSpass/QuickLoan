@@ -22,9 +22,14 @@ a
 	outline: none !important
 
 body
+	box-sizing: border-box
+	background: #0b2d39
+	color: $text-color
 	font-size: 100%
 	font-family: $ff-os-regular
-	box-sizing: border-box
+
+.top
+	background: #fff
 
 .navigation-box
 	display: flex
@@ -33,7 +38,7 @@ body
 	align-items: center
 	margin: 40px auto
 	ul.menu
-		margin-right: 40px
+		margin: 20px 40px 20px 0
 		li
 			display: inline-block
 			a
@@ -41,6 +46,7 @@ body
 				padding: 0 25px
 				@include transition
 				@include no-text-decor
+				font-size: 18px
 				&:hover
 					color: $blue
 	.init-area
@@ -51,6 +57,7 @@ body
 			border-radius: 6px
 			display: inline-block
 			padding: 10px 25px
+			font-size: 18px
 			@include transition
 			@include no-text-decor
 		.btn-reg
@@ -70,12 +77,64 @@ body
 				border-color: $blue
 				color: $blue
 
+.btn-mobile
+	position: relative
+	margin-bottom: 5px
+	cursor: pointer
+	width: 43px
+	height: 36px
+	z-index: 999
+	overflow: hidden
+
+.btn-mobile:before,
+.btn-mobile:after,
+.btn-mobile .spin
+    position: absolute
+    -webkit-transition: all .4s ease
+    transition: all .4s ease
+    display: block
+    content: ''
+    width: 100%
+    height: 4px
+    background: $blue
+    display: block
+    left: 0
+    right: 100%
+
+.btn-mobile:before 
+    top: 0
+
+.btn-mobile:after 
+    bottom: 0
+
+.btn-mobile .spin 
+    top: 50%
+    margin-top: -2px
+
+.btn-mobile.active:before, .btn-mobile.active:after, .btn-mobile.active .spin
+	background: #ffa925
+
+.btn-mobile.active:before
+	transform: rotateZ(45deg)
+	top: 50%
+	margin-top: -2px
+
+.btn-mobile.active:after
+    transform: rotateZ(-45deg)
+    top: 50%
+    margin-top: -2px
+
+.btn-mobile.active .spin 
+    left: auto
+    right: -50px
+
+
+
 .wrapper
 	background-image: url("../img/bg-top.png")
 	background-repeat: no-repeat
-	// background-size: contain
 	background-position: center top
-	padding: 1.5vw 0
+	padding: 1.5vw 0 30px
 	background-color: #fff
 
 .step-inner
@@ -86,12 +145,6 @@ body
 	&.active-step-5	.step-item:nth-child(5)
 		.step-dot
 			@include sprite-dot-big
-			// background-image: url("../img/dot-big.png")
-
-			// &:before
-			// 	padding: 10px
-			// 	margin: -10px auto
-			// 	background: $green
 		.step-desc
 			font-family: $ff-os-bold
 			opacity: 1
@@ -111,7 +164,6 @@ body
 		&:before
 			position: absolute
 			content: ''
-			// top: 24%
 			top: 30%
 			left: 0
 			right: 0
@@ -125,26 +177,8 @@ body
 		.step-dot
 			@include sprite-dot-small
 			margin: 0 auto
-			// display: block
-			// width: 50px
-			// height: 50px
-			// background-image: url("../img/dot-small.png")
-			// background-repeat: no-repeat
-			// background-position: center
-			// background-size: contain
-
-			// &:before
-			// 	content: '' 
-			// 	display: block
-			// 	height: 15px
-			// 	width: 15px
-			// 	background: $blue
-			// 	border-radius: 50%
-			// 	border: 10px solid #fff
-			// 	margin: 0 auto
 		.step-desc
 			color: $blue
-			// margin-top: 10px
 			margin-top: 5px
 			text-align: center
 			opacity: .6
@@ -165,21 +199,239 @@ body
 		// height: 100px
 		@include fontsize(30)
 
+
+.select-info.brief-content
+	background: #f1f1f1
+	border-radius: 15px
+	padding: 40px 30px
+	.choise-text
+		color: $blue
+		margin-bottom: 40px
+		@include fontsize(25)
+		font-family: $ff-os-sbold
+
+.choise-info
+	display: flex
+	flex-flow: row wrap
+	justify-content: space-between
+	align-items: center
+	line-height: 50px
+	.amount-text
+		color: $text-color
+		@include fontsize(25)
+		font-family: $ff-os-sbold
+	#borrow_value
+		background: #fff
+		border-radius: 10px
+		border: 1px solid #e6e6e6
+		box-shadow: inset 1px 1px 4px rgba(0,0,0,.1)
+		box-sizing: border-box
+		user-select: none
+		min-width: 160px
+		padding: 0 30px 0 10px
+		position: relative
+		color: $text-color
+		display: block
+		@include fontsize(30)
+		&:after
+			position: absolute
+			top: 50%
+			right: 16px
+			margin-top: -8px
+			line-height: 30px
+			font-size: 15px
+			font-family: 'fontello'
+		&.ru:after
+			content: '\f158'
+
+.slider-box
+	position: relative
+	margin: 23px auto
+	width: 82%
+	.range-amount
+		position: absolute
+		bottom: calc(-100% - 20px)
+		display: block
+		color: #8a8a8a
+		font-family: $ff-os-sbold
+		font-size: 15px
+		&:before
+			content: ''
+			position: absolute
+			top: calc(-100% + 6px)
+			left: 1px
+			width: 1px
+			height: 14px
+			background: #ccc
+		&.min-amount
+			left: 0
+		&.max-amount
+			right: 0
+			&:before
+				left: auto
+				right: 1px
+	.noUi-target
+		background: #dedede
+		border-radius: 8px
+		border: none
+		box-shadow: none
+	.noUi-connect
+		background: $blue
+		border-radius: 9px
+		border: 1px solid #aeaeae
+	.noUi-state-tap .noUi-origin
+		transition: all .2s ease
+	.noUi-handle
+		cursor: pointer
+		width: 50px
+		height: 50px
+		top: -17px
+		left: -25px
+		border-radius: 50%
+		&:before,&:after
+			position: absolute
+			top: 50%
+			margin-top: -12px
+			width: 14px
+			height: 24px
+			line-height: 24px
+			color: $blue-dark
+			background: none
+			font-family: 'fontello'
+			text-align: center
+			@include fontsize(30)
+		&:before
+			left: 7px
+			content: '\f104'
+		&:after
+			left: auto
+			right: 7px
+			content: '\f105'
+
+.slider-amount-box
+	display: flex
+	flex-flow: row wrap
+	justify-content: space-between
+	align-items: center	
+	.btn-slider-box
+		width: 9%
+		.btn-slider
+			position: relative
+			display: block
+			cursor: pointer
+			width: 100%
+			max-width: 35px
+			height: 35px
+			border: 3px solid $blue-dark
+			border-radius: 50%
+			background: transparent
+			&:before,&:after
+				content: ''
+				display: block
+				background: $blue-dark
+				position: absolute
+				margin: 0 auto
+				top: 50%
+				left: 0
+				right: 0
+				width: 20px
+				height: 2px
+			&:after
+				transform: rotate(90deg)
+			&.left:after
+				display: none
+			&.left
+				float: left
+			&.right
+				float: right
+
 .brief-content
 	background: #f1f1f1
 	border-radius: 15px
 	padding: 40px 0
-	.select-amount
-		padding: 0 30px
-		.choise-text
-			color: $blue
-			@include fontsize(25)
-			font-family: $ff-os-sbold
 	.select-view
-		background: $green
+		position: relative
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		align-items: stretch
+		background-color: $green
 		border-radius: 7px
-		height: 100px
+		color: #fff
+		// height: 100px
 		margin: 35px auto
+		overflow: hidden
+		#bg-emulation
+			position: absolute
+			width: 100%
+			height: 100%
+			top: 0
+			left: 0
+			right: 0
+			background-color: rgba(#893838,.01)
+			z-index: 0
+		.approv-text
+			line-height: 22px
+			font-family: $ff-os-bold
+			font-size: 16px
+		.select-view-col-1, .select-view-col-2
+			box-sizing: border-box
+			padding: 10px 0
+		.select-view-col-1
+			position: relative
+			width: 33.333333%
+			box-sizing: border-box
+			background-color: rgba(255,255,255,.5)
+			&:after
+				content: ''
+				position: absolute
+				top: 50%
+				right: -25px
+				box-sizing: border-box
+				width: 25px
+				margin-top: -12.5px
+				border: 12.5px solid transparent
+				border-left: 12.5px solid rgba(255,255,255,.5)
+				z-index: 1
+			.aprov-box
+				display: flex
+				flex-flow: row wrap
+				justify-content: space-between
+				align-items: center
+				height: 100%
+				padding: 0 15px 0 30px
+				font-family: $ff-os-bold
+				z-index: 1
+				#prob_approv
+					@include fontsize(50)
+					&:after
+						content: '%'
+				.aprov-text
+					max-width: 160px
+		.select-view-col-2
+			width: 66.666666%
+			box-sizing: border-box
+			z-index: 2
+			.aprov-desc
+				display: flex
+				flex-flow: row wrap
+				justify-content: space-between
+				align-items: center
+				height: 100%
+				padding: 0 30px
+				.easter.hide
+					display: none
+				.aprov-text
+					max-width: 200px
+				.nodata-for-this-item
+					p
+						@include fontsize(15)
+						font-family: $ff-os-light
+					span
+						font-size: 18px
+						font-family: $ff-os-bold
+					.borrow-value.ru:after
+						content: '\00a0рублей'
 
 .hot-to-get
 	display: flex
@@ -279,6 +531,7 @@ body
 		box-sizing: border-box
 		height: 50px
 		line-height: 50px
+		font-size: 18px
 	.field-desc
 		width: 31%
 		p
@@ -291,52 +544,232 @@ body
 					content: '*'
 					color: $orange
 	.field-value
+		position: relative
 		width: 69%
 		input
 			width: 100%
 			height: 50px
 			border-radius: 4px
 			border: 1px solid #e6e6e6
-			box-shadow: inset 1px 2px 8px rgba(0,0,0,.1)
+			box-shadow: inset 1px 1px 4px rgba(0,0,0,.1)
 			line-height: 50px
 			padding-left: 15px
 			padding-right: 40px
-			// &:focus
-			// 	box-shadow: inset 2px 2px 5px rgba($green,.15)
-			// 	border-color: rgba($blue,.15)
-			&+.validation
-				position: absolute
-				display: block
-				top: 50%
-				right: 15px
-				margin-top: -10px
-				width: 20px
-				height: 20px
+			&+label
 				&:before
 					position: absolute
-					top: 0
+					top: -35px
+					right: 25px
 					line-height: 20px
 					width: 20px
+					height: 20px
 					text-align: center
-					height: 100%
 					font-family: 'fontello'
 					font-size: 18px
-				&.valid
-					&+input
-						box-shadow: inset 1px 2px 8px rgba($orange,.15)
-						border-color: rgba($orange,.2)
-					&:before
-						content: '\e800'
-						color: $orange
 				&.error
 					&+input
-						box-shadow: inset 1px 2px 8px rgba($red,.15)
+						box-shadow: inset 1px 1px 4px rgba($red,.15)
 						border-color: rgba($red,.2)
 					&:before
 						content: '\e803'
 						color: $red
+				&.valid
+					&+input
+						box-shadow: inset 1px 1px 4px rgba($orange,.15)
+						border-color: rgba($orange,.2)
+					&:before
+						content: '\e800'
+						color: $orange
 
 label.error
     position: absolute
     width: 100%
-    right: -102%
+    margin-left: 15px
+    line-height: 15px
+    font-size: 14px
+    top: 100%
+    left: 0
+
+.select-info
+	.required-info
+		margin-left: 21%
+		font-family: $ff-os-regular
+		font-size: 16px
+		&>div
+			line-height: 32px
+		.required-box
+			padding: 25px 0
+			input
+				display: none
+				&:checked + label:before
+					content: '\e800'
+			label
+				display: block
+				box-sizing: border-box
+				&:before
+					content: ''
+					color: $blue
+					background: #fff
+					border-radius: 4px
+					border: 1px solid #e6e6e6
+					box-shadow: inset 1px 1px 4px rgba(0,0,0,.1)
+					display: block
+					line-height: 30px
+					margin-right: 15px
+					width: 30px
+					height: 30px
+					text-align: center
+					font-family: 'fontello'
+					font-size: 18px
+					float: left
+		.required-tagline, .required-lock
+			margin-bottom: 12px
+		.required-tagline .tag:after
+			content: '\00a0*'
+			color: $orange
+		.required-lock
+			.locked-ico
+				&:before
+					content: '\e801'
+					color: $blue
+					line-height: 30px
+					vertical-align: sub
+					margin: 1px 10px 0 0
+					font-family: 'fontello'
+					font-size: 18px
+					float: left
+
+.addr-form
+	display: none
+.btn-box
+	margin: 15px 0
+	max-width: 450px
+	display: flex
+	flex-flow: row wrap
+	justify-content: space-between
+	align-items: center
+.btn-next-step
+	background: $orange
+	border-radius: 15px
+	color: #fff
+	cursor: pointer
+	display: inline-block
+	line-height: 66px
+	letter-spacing: .5px
+	padding: 0 33px
+	// margin: 15px 7px 0
+	@include fontsize(20)
+	&:disabled
+		cursor: not-allowed
+		opacity: 0.5
+	&:hover
+		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1)
+	&:before,&:after
+		display: inline-block
+		line-height: 60px
+		vertical-align: middle
+		font-family: 'fontello'
+		@include fontsize(38)
+	&:after
+		content: '\00a0\00a0\f105'
+	&.back
+		background: #dedede
+		color: $text-color
+		&:after
+			display: none
+		&:before
+			content: '\f104\00a0\00a0'
+
+.fair-box
+	font-size: 18px
+	.annonce
+		border: 3px solid $orange
+		border-radius: 15px
+		padding: 30px
+		margin: 30px auto 15px
+	.just
+		display: block
+		margin: 40px 0 30px 0
+		&:before
+			content: '\f086\00a0'
+			font-family: 'fontello'
+			font-size: 28px
+			vertical-align: middle;
+
+.footer
+	.footer-box
+		padding: 40px 15px
+		background: $blue-light
+		.footer-inner
+			display: flex
+			flex-flow: row wrap
+			justify-content: space-between
+			align-items: flex-start
+			max-width: 1200px
+			margin: 0 auto
+			&>div
+				max-width: 245px
+			.footer-list
+				.footer-desc
+					position: relative
+					color: #538293
+					line-height: 40px
+					margin-bottom: 15px
+					font-size: 18px
+					font-family: $ff-os-sbold	
+					&:before
+						position: absolute
+						left: 0
+						bottom: 0
+						content: ''
+						width: 30px
+						height: 3px
+						background: $blue
+				ul li
+					line-height: 24px
+					a
+						text-decoration: none
+						color: #8aa7b1
+						font-size: 15px
+						&:hover
+							text-decoration: underline
+	.bottom
+		height: 250px
+		text-align: right
+		p
+			color: #8aa7b1
+			margin-top: 25px
+			font-size: 14px
+.social
+	align-self: flex-end
+	.social-inner
+		li
+			display: inline-block
+			a.ico
+				display: block
+				text-align: center
+				text-decoration:none !important
+				color: #fff
+				&:hover
+					text-decoration: none
+				&:before
+					width: 30px
+					height: 30px
+					display: block
+					line-height: 30px
+					font-family: 'fontello'
+				&.ico-vk:before
+					background: #1b77c1
+					content: '\f189'
+				&.ico-fb:before
+					background: #3552a6
+					content: '\f09a'
+				&.ico-tw:before
+					background: #26a9e1
+					content: '\f099'
+				&.ico-gl:before
+					background: #b32929
+					content: '\f30f'
+				&.ico-ok:before
+					background: #d77d2e
+					content: '\f263'

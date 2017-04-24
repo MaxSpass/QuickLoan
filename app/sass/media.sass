@@ -1,33 +1,97 @@
 @import 'mixin/mixins', 'mixin/variables', 'mixin/sprite';
 
 
+@media screen and (max-width: 1199px)
+	.select-info
+		.required-info
+			margin-left: 0
+
 @media screen and (max-width: 991px)
-	.brief-content
-		padding: 15px 0
+	.select-info.brief-content
+		padding: 15px 10px
 		.hot-to-get,.select-view
-			margin: 15px auto
+			margin: 25px auto
 
 @media (min-width: 768px) and (max-width: 991px)
 	.content
 		font-size: 90%
 	.get-item
 		width: 19%
-
+	.navigation-box ul.menu
+		margin: 20px auto
+	.brief-content .select-view 
+		font-size: 80%
+		.select-view-col-1 .aprov-box
+			padding-right: 0
+			.aprov-text
+				width: 50%
+		.select-view-col-2 .aprov-desc .aprov-text
+			width: 38%
+		.nodata-for-this-item
+			width: 62%
+		.aprov-text
+			font-size: 14px
+	.footer .footer-box .footer-inner
+		justify-content: center
+		&>div
+			width: 100%
+			max-width: 50%
+			margin-bottom: 20px
+	.social
+		order: 4
+		margin-top: 20px
+		align-self: flex-start
 @media screen and (max-width: 767px)
 	.content
 		font-size: 80%
+		.request
+			padding: 10px
+	.slider-amount-box
+		.btn-slider-box
+			width: 15%
+		.slider-box
+			width: 70%
+			box-sizing: border-box
+			padding: 0 22px
 	.brief-content
-		.select-amount
+		.select-view
+			height: 100%
+			.select-view-col-1
+				width: 100%
+				&:after
+					top: 100%
+					left: 0
+					right: 0
+					margin: 0 auto
+					height: 25px
+					transform: rotate(90deg)
+				.aprov-box
+					justify-content: center
+					padding: 0 10px
+					.aprov-text
+						padding-left: 20px
+			.select-view-col-2
+				padding: 10px 0
+				width: 100%
+				.aprov-desc
+					padding: 0 10px 
+					.aprov-text
+						max-width: 40%
+	.select-info.brief-content .choise-text
+		margin-bottom: 20px
+		.select-info
 			padding: 0 10px
+	.select-info .required-info .required-box
+		padding: 10px 0
 	.hot-to-get
 		.get-item
 			width: 49%
-			margin-bottom: 2%
+			margin-bottom: 8px
 			.choise-value
 				font-size: 15px
 	.form-content
 		.form-field
-			margin: 25px auto
+			margin: 40px auto
 		.field-desc
 			position: absolute
 			top: -15px
@@ -37,11 +101,52 @@
 			height: 15px
 		.field-value
 			width: 100%
+			input
+    			height: 44px
 	.step-view
 		display: none
-		// .step-inner:before
-		// 	top: 48%
-		// .step-desc
-		// 	max-width: 10%
-		// 	width: 10%
-		// 	font-size: 13px
+	.btn-box
+		justify-content: flex-start
+	.btn-next-step
+		font-size: 80%
+		padding: 0 12px
+		line-height: 55px
+		margin: 5px
+		box-sizing: border-box
+	.footer .footer-box
+		padding: 20px 20px
+		.footer-inner
+			flex-direction: column
+	.social
+		order: 4
+		align-self: center
+		margin-top: 20px
+	.navigation-box
+		justify-content: space-between
+		// align-items: flex-end
+		margin: 15px auto 10px
+		nav
+			align-self: center
+			width: 100%
+		ul.menu
+			display: none
+			li
+				line-height: 28px
+				display: block
+	.footer .bottom
+		height: 111px
+
+@media screen and (max-width: 500px)
+	.content
+		font-size: 75%
+	.brief-content .select-view .select-view-col-2 .aprov-desc .aprov-text
+		margin: 10px 0
+		max-width: 100%
+	.navigation-box .init-area
+		.btn-reg, .btn-login
+			padding: 10px 15px
+
+@media screen and (min-width: 768px)
+	.btn-mobile 
+	    display: none
+

@@ -20,6 +20,8 @@
     "normalize.sass": "^3.0.0",
     "bootstrap-grid": "^3.3.6-beta.1",
     "nouislider": "^9.2.0",
-    "jquery-validation": "jquery.validate#^1.13.0"
+    "jquery-validation": "jquery.validate#^1.13.0",
+    "wnumb": "^1.1.0",
+    "jquery-mask-plugin": "jQuery-Mask-Plugin#^1.14.10"
   }
 }
